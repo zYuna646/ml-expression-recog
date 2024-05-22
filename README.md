@@ -3,6 +3,27 @@ expresion-recog
 
 A short description of the project.
 
+CREATE ENV
+```bash
+conda env create -f requirements.text
+conda activate <env.name>
+```
+
+PROCESS DATA
+```bash
+python src/data/make_dataset.py
+```
+
+TRAIN MODEL
+```bash
+python src/models/train_model.py
+```
+
+EVALUATE MODEL
+```bash
+python src/models/evaluate_model.py
+```
+
 Project Organization
 ------------
 
