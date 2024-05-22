@@ -24,6 +24,11 @@ EVALUATE MODEL
 python src/models/evaluate_model.py
 ```
 
+TEST MODEL
+```bash
+python src/models/test_model_with_camera.py
+```
+
 Project Organization
 ------------
 

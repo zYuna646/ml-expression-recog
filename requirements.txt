@@ -18,6 +18,7 @@ tensorflow
 jupyter
 matplotlib
 seaborn
+opencv-python
 
 #DATA
 # https://www.kaggle.com/datasets/msambare/fer2013
