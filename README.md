@@ -38,6 +38,33 @@ TEST MODEL
 python src/models/test_model_with_camera.py
 ```
 
+Model Architecture
+------------
+    Input Layer: (48, 48, 1)
+    |
+    |-- Conv2D: 32 filters, (3x3), ReLU activation
+    |-- MaxPooling2D: (2x2)
+    |-- Dropout: 0.25
+    |
+    |-- Conv2D: 64 filters, (3x3), ReLU activation
+    |-- MaxPooling2D: (2x2)
+    |-- Dropout: 0.25
+    |
+    |-- Conv2D: 128 filters, (3x3), ReLU activation
+    |-- MaxPooling2D: (2x2)
+    |-- Dropout: 0.25
+    |
+    |-- Flatten
+    |
+    |-- Dense: 128 units, ReLU activation
+    |-- Dropout: 0.5
+    |
+    |-- Dense: 7 units, Softmax activation
+    |
+    Output: 7 classes (emotion categories)
+------------
+
+
 Project Organization
 ------------
 
