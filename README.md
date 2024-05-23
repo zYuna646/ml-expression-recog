@@ -3,10 +3,19 @@ expresion-recog
 
 A short description of the project.
 
-CREATE ENV
+CREATE WITH CONDA 
 ```bash
 conda env create -f requirements.text
 conda activate <env.name>
+```
+
+CREATE WITH VIRTUALENV
+```bash
+pip install virtualenv
+virtualenv env
+pip install -r requirements.txt
+env\Scripts\activate #linux source env/bin/activate
+pip install -r requirements.txt
 ```
 
 PROCESS DATA
