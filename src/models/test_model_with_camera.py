@@ -29,15 +29,18 @@ while True:
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     faces = face_cascade.detectMultiScale(gray, 1.3, 5)
     
-    for (x,y,w,h) in faces:
-        face_roi = frame[y:y+h, x:x+w]
-        processed_frame = preprocess_frame(face_roi)
-        predictions = model.predict(processed_frame)
-        max_index = np.argmax(predictions[0])
-        predicted_emotion = emotion_labels[max_index]
+    if len(faces) == 0:
+        cv2.putText(frame, "None", (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
+    else:
+        for (x,y,w,h) in faces:
+            face_roi = frame[y:y+h, x:x+w]
+            processed_frame = preprocess_frame(face_roi)
+            predictions = model.predict(processed_frame)
+            max_index = np.argmax(predictions[0])
+            predicted_emotion = emotion_labels[max_index]
 
-        cv2.rectangle(frame,(x,y),(x+w,y+h),(255,0,0),2)
-        cv2.putText(frame, predicted_emotion, (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (36,255,12), 2)
+            cv2.rectangle(frame,(x,y),(x+w,y+h),(255,0,0),2)
+            cv2.putText(frame, predicted_emotion, (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (36,255,12), 2)
 
     cv2.imshow('Facial Emotion Recognition', frame)
 
